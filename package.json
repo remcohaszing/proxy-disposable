@@ -1,0 +1,41 @@
+{
+  "name": "proxy-disposable",
+  "version": "0.0.0",
+  "description": "Make objects with a dispose method compatible with an ES6 disposable",
+  "keywords": [
+    "disposable",
+    "dispose",
+    "monaco",
+    "monaco-editor",
+    "vscode"
+  ],
+  "homepage": "https://github.com/remcohaszing/proxy-disposable#readme",
+  "bugs": "https://github.com/remcohaszing/proxy-disposable/issues",
+  "repository": "remcohaszing/proxy-disposable",
+  "funding": "https://github.com/sponsors/remcohaszing",
+  "license": "MIT",
+  "author": "Remco Haszing <remcohaszing@gmail.com>",
+  "type": "module",
+  "exports": {
+    "types": "./types/proxy-disposable.d.ts",
+    "default": "./lib/proxy-disposable.js"
+  },
+  "sideEffects": false,
+  "files": [
+    "lib",
+    "types"
+  ],
+  "scripts": {
+    "prepack": "tsc --build",
+    "test": "c8 node --test"
+  },
+  "devDependencies": {
+    "@remcohaszing/eslint": "^14.0.0",
+    "@types/node": "^25.0.0",
+    "c8": "^11.0.0",
+    "prettier": "^3.0.0",
+    "remark-cli": "^12.0.0",
+    "remark-preset-remcohaszing": "^3.0.0",
+    "typescript": "^6.0.0"
+  }
+}

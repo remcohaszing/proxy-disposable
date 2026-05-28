@@ -1,0 +1,11 @@
+{
+  "references": [{ "path": "./tsconfig.build.json" }],
+  "exclude": ["lib"],
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "module": "nodenext",
+    "noEmit": true,
+    "target": "esnext",
+    "types": ["node"]
+  }
+}
