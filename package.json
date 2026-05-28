@@ -1,6 +1,6 @@
 {
   "name": "proxy-disposable",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Make objects with a dispose method compatible with an ES6 disposable",
   "keywords": [
     "disposable",
