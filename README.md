@@ -75,7 +75,7 @@ and clean up afterwards. A typical use case is tests.
 
 ## Compatibility
 
-This project is compatible with Node.js 22 or greater.
+This project is compatible with Node.js 24 or greater.
 
 ## License
 
