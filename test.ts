@@ -1,34 +1,39 @@
 import assert from 'node:assert/strict'
-import { mock, test } from 'node:test'
+import { test } from 'node:test'
+import { setTimeout } from 'node:timers/promises'
 
 import { d } from 'proxy-disposable'
 
-test('Symbol.dispose', () => {
-  const m = mock.fn()
+test('using', () => {
+  let disposed = false
 
   {
     using disposable = d({
       dispose() {
-        m()
+        disposed = true
       }
     })
   }
 
-  assert.equal(m.mock.callCount(), 1)
+  assert.ok(disposed)
 })
 
-test('Symbol.asyncDispose', async () => {
-  const m = mock.fn()
+test('await using', async () => {
+  const order: string[] = []
 
   {
     await using disposable = d({
-      dispose() {
-        m()
+      async dispose() {
+        order.push('before await')
+        // Force the next tick.
+        await setTimeout(0)
+        order.push('after await')
       }
     })
   }
+  order.push('after dispose')
 
-  assert.equal(m.mock.callCount(), 1)
+  assert.deepEqual(order, ['before await', 'after await', 'after dispose'])
 })
 
 test('property access', () => {
